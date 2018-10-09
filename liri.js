@@ -10,7 +10,7 @@ var spotify = new Spotify(keys.spotify);
 var command = process.argv[2]
 
 var concertThis = function (input) {
-    var artist = input.slice(3).join(" ")
+    var artist = input
     var queryUrl = "https://rest.bandsintown.com/artists/" + artist + "/events?app_id=codingbootcamp"
 
     if (!artist) {
@@ -34,12 +34,12 @@ var concertThis = function (input) {
 }
 
 var songThis = function (input) {
-    var songSearch = input.slice(3).join(" ")
+    var song = input
 
     spotify
         .search({
             type: 'track',
-            query: songSearch,
+            query: song,
             limit: 1
         })
         .then(function (response) {
@@ -63,10 +63,11 @@ var songThis = function (input) {
 var movieThis = function (input) {
     var movieQuery = ''
     if (!input) {
-        movieQuery = 'http://www.omdbapi.com/?apikey=trilogy&i=tt0485947'
+        title = "Mr. Nobody"
+        movieQuery = "http://www.omdbapi.com/?t=" + title + "&y=&plot=short&apikey=trilogy";
 
     } else {
-        title = input.slice(3).join("+")
+        title = input
         movieQuery = 'http://www.omdbapi.com/?apikey=trilogy&t=' + title
     }
 
@@ -84,17 +85,20 @@ var movieThis = function (input) {
         console.log(`Country: ${movieInfo.Country}`)
         console.log(`Language: ${movieInfo.Language}`)
         console.log(`Plot: ${movieInfo.Plot}`)
-        console.log(`Actors: ${movieInfo.Actors}`)
+        console.log(`Actors: ${movieInfo.Actors}\n`)
     })
 }
 
 if (command === "concert-this") {
-    concertThis(process.argv)
+    artist = process.argv.slice(3).join(" ")
+    concertThis(artist)
 } else if (command === "spotify-this-song") {
-    songThis(process.argv)
+    song = process.argv.slice(3).join(" ")
+    songThis(song)
 
 } else if (command === "movie-this") {
-    movieThis(process.argv)
+    movie = process.argv.slice(3).join("+") 
+    movieThis(movie)
 
 } else if (command === "do-this") {
 
@@ -105,19 +109,20 @@ if (command === "concert-this") {
         }
 
         var dataArr = data.split(",");
+        command = dataArr[0]
 
         if (command === "concert-this") {
+            band = dataArr[1]
             concertThis(band)
         } else if (command === "spotify-this-song") {
-            songThis(process.argv)
-        
+            song = dataArr[1]
+            songThis(song)
         } else if (command === "movie-this") {
-            movieThis(process.argv)
+            movie = dataArr[1]
+            movieThis(movie)
         }
-
-
-
     });
+
 } else {
     console.log("not a command liri knows! try concert-this, spotify-this-song, movie-this, or do-this ")
 }
