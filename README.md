@@ -1,6 +1,6 @@
 # LIRI
 
-LIRI is an application made by me, Hayley Hartman, in October 2018. LIRI is a command line node app that returns information to the user based on the command entered. Users can use this app to search a specific movie, song, or musician, and the app returns information back through the console. 
+LIRI is an application made by me, Hayley Hartman, in October 2018. LIRI is a command line node app that returns information to the user based on the command entered. Users can use this app to search a specific movie, song, or musician, and the app returns information back through the console. Please see below for an example of how the concert-this functionality works, or reference the table below to see how other commands work.
 
 Command | Source | Function
 ------- | ------ | -------- 
@@ -11,9 +11,4 @@ do-this | fs and any of the above APIs | retrieves information from a separate d
 
 ![image of concert-this](concert-this.png)
 
-![image of do-this](do-this.png)
-
-![image of spotify-this-song](spotify-this-song.png)
-
-[!image of movie-this](movie-this.png)
 
