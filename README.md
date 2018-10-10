@@ -9,15 +9,11 @@ concert-this [+ a band name] | bands in town API | returns the next five shows t
 spotify-this-song [+ song title] | node spotify API | returns song information for a song of the user's choice
 do-this | fs and any of the above APIs | retrieves information from a separate document (formatted as command,thing to be searched)
 
-![image of concert-this]
-(concert-this.png)
+![image of concert-this](concert-this.png)
 
-![image of do-this]
-(do-this.png)
+![image of do-this](do-this.png)
 
-![image of spotify-this-song]
-(spotify-this-song.png)
+![image of spotify-this-song](spotify-this-song.png)
 
-[!image of movie-this]
-(movie-this.png)
+[!image of movie-this](movie-this.png)
 
